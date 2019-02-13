@@ -7,6 +7,7 @@ use App\Http\Requests\JobUpdateRequest;
 use App\Repositories\v1\JobsRepositories;
 use App\Http\Controllers\Controller;
 use App\Repositories\v1\SubscriptionRepositories;
+use Illuminate\Http\Request;
 
 class JobsController extends Controller
 {
@@ -65,11 +66,19 @@ class JobsController extends Controller
         return response()->json(JobsRepositories::Delete($id));
     }
 
-    public function subscription($job_id, $candidate_id)
+    public function subscription(Request $request, $job_id)
     {
-        return SubscriptionRepositories::subscription($candidate_id, $job_id)
+        return SubscriptionRepositories::subscription($request->get('candidates_id'), $job_id)
             ? response()->json('success')
             : response()->json('error')
         ;
     }
+
+    public function getAllSubscriptionByJob($job_id)
+    {
+        $job = JobsRepositories::GetById($job_id)->first();
+        $subscription = SubscriptionRepositories::getAllSubscriptionByJobId($job_id);
+        return ['job' => $job, 'subscription' => $subscription];
+    }
+
 }

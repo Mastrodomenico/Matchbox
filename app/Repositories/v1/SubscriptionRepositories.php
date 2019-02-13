@@ -1,6 +1,7 @@
 <?php
 namespace App\Repositories\v1;
 
+use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
 
 class SubscriptionRepositories
@@ -20,5 +21,23 @@ class SubscriptionRepositories
         }else{
             return false;
         }
+    }
+
+    public static function getAllSubscriptionByJobId(int $job_id): Collection
+    {
+        return DB::table('candidates_jobs')
+            ->join('candidates', 'candidates_jobs.candidates_id', '=', 'candidates.id')
+            ->join('jobs', 'candidates_jobs.jobs_id', '=', 'jobs.id')
+            ->where('jobs_id' ,$job_id)
+            ->get();
+    }
+
+    public static function getAllSubscriptionByCandidatesId(int $candidates_id): Collection
+    {
+        return DB::table('candidates_jobs')
+            ->join('candidates', 'candidates_jobs.candidates_id', '=', 'candidates.id')
+            ->join('jobs', 'candidates_jobs.jobs_id', '=', 'jobs.id')
+            ->where('candidates_id' ,$candidates_id)
+            ->get();
     }
 }

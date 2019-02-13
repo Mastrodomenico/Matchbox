@@ -37,14 +37,4 @@ class JobsRepositories
         return Job::destroy($job_id);
     }
 
-    public static function Subscription(int $job_id, int $candidate_id)
-    {
-
-    }
-
-
-
-
-
-
 }

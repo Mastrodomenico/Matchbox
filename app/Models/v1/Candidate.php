@@ -3,6 +3,7 @@
 namespace App\Models\v1;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Hash;
 
 class Candidate extends Model
 {
@@ -17,7 +18,8 @@ class Candidate extends Model
         'year_graduation'
     ];
 
-    public function jobs(){
-        return $this->belongsToMany(Job::class);
+    public function setPasswordAttribute($value)
+    {
+        $this->attributes['password'] = Hash::make($value);
     }
 }

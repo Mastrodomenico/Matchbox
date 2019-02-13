@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\v1;
 
 use App\Http\Requests\CandidatesCreateRequest;
+use App\Http\Requests\CandidatesLoginRequest;
 use App\Repositories\v1\CandidatesRepositories;
+use App\Repositories\v1\SubscriptionRepositories;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -63,4 +65,32 @@ class CandidatesController extends Controller
     {
         return response()->json(CandidatesRepositories::Delete($id));
     }
+
+    public function getAllSubscriptionByCandidates(Request $request)
+    {
+        $candidates = CandidatesRepositories::GetById($request->get('candidates_id'))->first();
+        $subscription = SubscriptionRepositories::getAllSubscriptionByCandidatesId($request->get('candidates_id'));
+        return ['candidates' => $candidates, 'subscription' => $subscription];
+    }
+
+    public function login(CandidatesLoginRequest $request)
+    {
+        $Token = CandidatesRepositories::Login($request->get('email'),$request->get('password'));
+        return $Token !== null
+            ? response()->json((string) $Token)
+            : response()->json("unauthorized",401)
+        ;
+    }
+
+
+    public function showCandidate(Request $request)
+    {
+        return response()->json(CandidatesRepositories::GetById($request->get('candidates_id'))->first());
+    }
+
+    public function updateCandidate(Request $request)
+    {
+        return response()->json(CandidatesRepositories::Upadate($request->except('candidates_id'),$request->get('candidates_id'))->first());
+    }
+
 }
