@@ -1,0 +1,279 @@
+FORMAT: 1A
+HOST: http://localhost:8000/api/v1
+
+# Documentação da API Matchbox Brasil 
+
+Teste API.<br>
+HOST: http://localhost:8000/api/v1
+<br>
+<br>
+
+## Authorization
+```http
+Authorization: Bearer TOKEN
+```
+
+<br>
+
+::: note
+## Login
+Login como usuário que cadastra os jobs <br>
+Email: admin@admin.com.br <br> 
+Pass: 12345678
+:::
+
+<br>
+<br>
+
+# Group Usuario Administrativo
+
+## Login do Usuario [/login/user]
+
+### Login Usuario [POST]
++ Request Login
+
+    + Headers
+       	
+       	  Accept: application/json
+       	  Content-Type: application/json
+    + Attributes (Login)
+
++ Response 201 (application/json)
+    + Attributes (object)
+        + token: tokenjwt
+
+
+# Group Candidatos
+
+## Cadastro do Candidato [/candidates]
+
+### Novo Candidato [POST]
++ Request Cadastro de um novo candidato
+
+    + Headers
+       	
+       	  Accept: application/json
+       	  Content-Type: application/json
+    + Attributes (CandiateRequest)
+
++ Response 201 (application/json)
+    + Attributes (Candidate)
+
+## Candidato [/candidates/{id}]
++ Parameters
+    + id: 1 (number, required) - Id do candidato
+
+### Recuperando um candidato [GET]
++ Request Atualiza os dados do candidato
+
+    + Headers
+       	
+       	  Accept: application/json
+       	  Content-Type: application/json
+
++ Response 201 (application/json)
+    + Attributes (Candidate)
+
+### Alterar um candidato [PUT]
++ Request Atualiza os dados do candidato
+
+    + Headers
+       	
+       	  Accept: application/json
+       	  Content-Type: application/json
+    + Attributes (CandiateRequest)
+
++ Response 201 (application/json)
+    + Attributes (Candidate)
+
+
+### Deleta um candidato [DELETE]
++ Request Deleta um candidato
+
+    + Headers
+       	
+       	  Accept: application/json
+       	  Content-Type: application/json
+
++ Response 201 (application/json)
+    + Attributes (Candidate)
+
+## Cadastro do Candidato [/login/candidate]
+
+### Login Candidato [POST]
++ Request Login
+
+    + Headers
+       	
+       	  Accept: application/json
+       	  Content-Type: application/json
+    + Attributes (object)
+        + email
+        + password
+
++ Response 201 (application/json)
+    + Attributes (object)
+        + token: tokenjwt
+
+## Candidatos - Logado [/candidate]
+
+### Recuperar as informações do Candidato Logado [GET]
++ Request Recuperar informação
+
+    + Headers
+       	
+       	  Accept: application/json
+       	  Content-Type: application/json
+
++ Response 201 (application/json)
+    + Attributes (Candidate)
+
+### Atualiza as informações do Candidato Logado [PUT]
++ Request Atualiza informação
+
+    + Headers
+       	
+       	  Accept: application/json
+       	  Content-Type: application/json
+    + Attributes (Candidate)
+
++ Response 201 (application/json)
+    + Attributes (Candidate)
+
+## Cadastrar-se na vaga [/subscription/job/{job_id}/candidate]
++ Parameters
+    + job_id: 1 (number, required) - Id do job
+
+### Cadastro na vaga [POST]
++ Request Cadastro de uma candidato na vaga
+
+    + Headers
+       	
+       	  Accept: application/json
+       	  Content-Type: application/json
+
++ Response 204 (application/json)
+
+## Lista de vagas cadastradas [/subscription/candidate]
+
+### Lista de vagas cadastradas [GET]
++ Request Lista de vagas cadastradas
+
+    + Headers
+       	
+       	  Accept: application/json
+       	  Content-Type: application/json
+
++ Response 204 (application/json)
+
+
+# Group Jobs
+
+## Novo Job [/jobs]
+
+### Cadastro Job [POST]
++ Request Cadastro de um novo candidato
+
+    + Headers
+       	
+       	  Accept: application/json
+       	  Content-Type: application/json
+    + Attributes (JobRequest)
+
++ Response 201 (application/json)
+    + Attributes (Job)
+
+## Job [/jobs/{id}]
++ Parameters
+    + id: 1 (number, required) - Id do job
+
+### Recuperando um job [GET]
++ Request job
+
+    + Headers
+       	
+       	  Accept: application/json
+       	  Content-Type: application/json
+
++ Response 201 (application/json)
+    + Attributes (Job)
+
+### Alterar um job [PUT]
++ Request Atualiza os dados do job
+
+    + Headers
+       	
+       	  Accept: application/json
+       	  Content-Type: application/json
+    + Attributes (JobRequest)
+
++ Response 201 (application/json)
+    + Attributes (Job)
+
+
+### Deleta um candidato [DELETE]
++ Request Deleta um job
+
+    + Headers
+       	
+       	  Accept: application/json
+       	  Content-Type: application/json
+
++ Response 201 (application/json)
+    + Attributes (Job)
+
+
+## Todos os candidatos de um job [/subscription/job/{job_id}]
++ Parameters
+    + job_id: 1 (number, required) - Id do job
+
+### Candidatos do Job [GET]
++ Request Todos os candidatos
+
+    + Headers
+       	
+       	  Accept: application/json
+       	  Content-Type: application/json
+
++ Response 201 (application/json)
+    + Attributes (Job)
+
+
+
+# Data Structures
+
+## Login (object)
++ email: admin@admin.com.br (string, required) - Email
++ password: 12345678 (string, required) - Senha
+
+## CandiateRequest (object)
++ name: Danie Mastrodomenico (string, required) - Nome do candidato
++ email: dan.mastrodomenico@gmail.com (string, required) - Email do candidato
++ password: 12345678 (string, required) - Senha do candidato
++ date_birth: 2019-01-01 (date) - Data de nascimento
++ cpf: 435.226.268-41 (number) - Documento do candidato
++ institution_graduation: FIAP (string) - Instituto de graduação
++ course_graduation: Sistemas de informação (string, ) - Curso
++ year_graduation: 2019-01-01 (string, ) - Data da graduação
+
+## Candidate
++ name
++ email
++ password
++ date_birth
++ cpf
++ institution_graduation
++ course_graduation
++ year_graduation
+
+## JobRequest (object)
++ name: Vaga (string, required) - Nome do candidato
++ description: Vaga de php (string, required) - Email do candidato
++ date_limit: 2019-01-01 (date, required) - Data de nascimento
++ number_jobs: 1 (number, required) - Documento do candidato
+
+## Job (object)
++ name
++ description
++ date_limit
++ number_jobs
