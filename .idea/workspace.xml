@@ -2,22 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e0e523a5-cea8-4a3f-9bbb-3af7464646ee" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/Http/Middleware/AuthAdmin.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Middleware/AuthCandidate.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Repositories/v1/UsersRepositories.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/v1/CandidatesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/v1/CandidatesController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/v1/JobsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/v1/JobsController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Kernel.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Kernel.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/v1/Candidate.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/v1/Candidate.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/v1/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/v1/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Repositories/v1/CandidatesRepositories.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Repositories/v1/CandidatesRepositories.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Repositories/v1/JobsRepositories.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Repositories/v1/JobsRepositories.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Repositories/v1/SubscriptionRepositories.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Repositories/v1/SubscriptionRepositories.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/database/.gitignore" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -55,15 +40,6 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Http/Requests/UserLoginRequest.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
-              <caret line="26" column="32" selection-start-line="26" selection-start-column="32" selection-end-line="26" selection-end-column="32" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/Requests/CandidatesLoginRequest.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="384">
@@ -81,11 +57,20 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/routes/api.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="441">
+            <state relative-caret-position="361">
               <caret line="33" column="38" selection-start-line="33" selection-start-column="16" selection-end-line="33" selection-end-column="38" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/database/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret lean-forward="true" />
             </state>
           </provider>
         </entry>
@@ -166,6 +151,7 @@
         <option value="$PROJECT_DIR$/app/Http/Controllers/v1/JobsController.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/v1/CandidatesController.php" />
         <option value="$PROJECT_DIR$/routes/api.php" />
+        <option value="$PROJECT_DIR$/database/.gitignore" />
       </list>
     </option>
   </component>
@@ -351,6 +337,11 @@
             <path>
               <item name="sistema-vaga" type="b2602c69:ProjectViewProjectNode" />
               <item name="sistema-vaga" type="462c0819:PsiDirectoryNode" />
+              <item name="database" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="sistema-vaga" type="b2602c69:ProjectViewProjectNode" />
+              <item name="sistema-vaga" type="462c0819:PsiDirectoryNode" />
               <item name="routes" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
@@ -405,12 +396,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1549918743332</updated>
-      <workItem from="1549918744696" duration="30694000" />
+      <workItem from="1549918744696" duration="31337000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="30694000" />
+    <option name="totallyTimeSpent" value="31337000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -650,8 +641,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/routes/api.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="441">
+        <state relative-caret-position="361">
           <caret line="33" column="38" selection-start-line="33" selection-start-column="16" selection-end-line="33" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret lean-forward="true" />
         </state>
       </provider>
     </entry>
